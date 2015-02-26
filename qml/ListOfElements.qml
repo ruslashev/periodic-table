@@ -15,13 +15,24 @@ Page {
 			onClicked: {
 				pageStack.push(Qt.resolvedUrl("elements/" + model.text + ".qml"))
 			}
-			Label {
-				x: Theme.paddingLarge
-				// text: (model.index+1) + ". " + model.text
-				text: model.text
-				anchors.verticalCenter: parent.verticalCenter
-				color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-				font.capitalization: Font.Capitalize
+			Row {
+				anchors.horizontalCenter: parent.horizontalCenter
+				Label {
+					x: Theme.paddingLarge
+					text: model.index+1
+					anchors.verticalCenter: parent.verticalCenter
+					color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+				}
+				Item {
+					width: Screen.width/3
+				}
+				Label {
+					x: Theme.paddingLarge
+					text: model.text
+					anchors.verticalCenter: parent.verticalCenter
+					color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+					font.capitalization: Font.Capitalize
+				}
 			}
 		}
 		VerticalScrollDecorator {}

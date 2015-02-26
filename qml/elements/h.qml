@@ -4,30 +4,25 @@ import Sailfish.Silica 1.0
 Page {
 	SilicaFlickable {
 		anchors.fill: parent
-		contentHeight: column.height + Theme.paddingLarge
+		contentHeight: column.height + Theme.paddingMedium
 
 		Column {
-			id: column
-			spacing: Theme.paddingLarge
 			width: parent.width
-
-			PageHeader { title: "Hydrogen" }
+			spacing: Theme.paddingMedium
 			PageHeader {
-				title: "H"
-				anchors.horizontalCenter: parent.horizontalCenter
+				title: "Hydrogen"
 			}
 
-			SectionHeader { text: "Symbol" }
-			Row {
-				spacing: Theme.paddingLarge
+			Label {
+				id: symbol
 				anchors.horizontalCenter: parent.horizontalCenter
-				Label {
-					anchors.verticalCenter: parent.verticalCenter
-					text: "H"
+				font {
+					pixelSize: Theme.fontSizeHuge
+					family: Theme.fontFamilyHeading
 				}
+				text: "H"
 			}
 		}
-
 		VerticalScrollDecorator {}
 	}
 }
