@@ -16,10 +16,11 @@ CONFIG += sailfishapp
 
 SOURCES += src/periodic-table.cpp
 
-OTHER_FILES += qml/periodic-table.qml \
-    qml/cover/CoverPage.qml \
-    qml/pages/FirstPage.qml \
-    qml/pages/SecondPage.qml \
+OTHER_FILES += \
+	qml/periodic-table.qml
+	qml/ListOfElements.qml
+	qml/CoverList.qml
+	qml/elements/h.qml
     rpm/periodic-table.changes.in \
     rpm/periodic-table.spec \
     rpm/periodic-table.yaml \
