@@ -2,7 +2,7 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 
 Page {
-	id: listOfElements
+	id: listPage
 
 	SilicaListView {
 		id: mainList
@@ -12,27 +12,36 @@ Page {
 
 		delegate: ListItem {
 			id: listItem
-			onClicked: {
-				pageStack.push(Qt.resolvedUrl("elements/" + model.text + ".qml"))
+
+			x: Theme.paddingLarge
+			width: parent.width - 2*Theme.paddingLarge
+			height: childrenRect.height
+
+			Label {
+				text: model.name
+				anchors {
+					verticalCenter: parent.verticalCenter
+					horizontalCenter: parent.horizontalCenter
+				}
 			}
-			Row {
-				anchors.horizontalCenter: parent.horizontalCenter
-				Label {
-					x: Theme.paddingLarge
-					text: model.index+1
-					anchors.verticalCenter: parent.verticalCenter
-					color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
+			Label {
+				text: model.index+1
+				anchors {
+					verticalCenter: parent.verticalCenter
+					left: parent.left
+					leftMargin: Theme.paddingLarge
 				}
-				Item {
-					width: Screen.width/3
+			}
+			Label {
+				text: model.symbol
+				anchors {
+					verticalCenter: parent.verticalCenter
+					right: parent.right
+					rightMargin: Theme.paddingLarge
 				}
-				Label {
-					x: Theme.paddingLarge
-					text: model.text
-					anchors.verticalCenter: parent.verticalCenter
-					color: listItem.highlighted ? Theme.highlightColor : Theme.primaryColor
-					font.capitalization: Font.Capitalize
-				}
+			}
+			onClicked: {
+				pageStack.push(Qt.resolvedUrl(model.file))
 			}
 		}
 		VerticalScrollDecorator {}
@@ -40,7 +49,14 @@ Page {
 	ListModel {
 		id: listModel
 		ListElement {
-			text: "h"
+			name: "Hydrogen"
+			symbol: "H"
+			file: "elements/h.qml"
+		}
+		ListElement {
+			name: "Developium"
+			symbol: "Qml"
+			file: "elements/h.qml"
 		}
 	}
 }
