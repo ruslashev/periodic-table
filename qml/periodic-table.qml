@@ -4,6 +4,6 @@ import Sailfish.Silica 1.0
 ApplicationWindow
 {
     initialPage: Component { ListOfElements { } }
-    cover: Qt.resolvedUrl("CoverList.qml")
+    cover: Qt.resolvedUrl("Cover.qml")
 }
 
